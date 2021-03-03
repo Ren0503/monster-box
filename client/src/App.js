@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 import Welcome from './components/Welcome'
+import ScrollToTop from './components/ScrollToTop'
 
 import SignIn from './pages/Auth/SignIn'
 import SignUp from './pages/Auth/SignUp'
@@ -21,18 +22,20 @@ function App() {
         <Router>
             <div className="site-wrapper">
                 <Header />
-                    <Switch>
-                        <Route exact path='/' component={Welcome} />
-                        <Route path='/signin' component={SignIn} />
-                        <Route path='/signup' component={SignUp} />
-                        <Route path="/profile" component={Authenticated(Profile)} />
-                        <Route path="/settings" component={Authenticated(Setting)} />
-                        <Route exact path='/blogs' component={BlogList} />
-                        <Route path='/blogs/new' component={Authenticated(BlogNew)} />
-                        <Route path='/blogs/:id' component={BlogDetail} />
-                        <Route path='/my_blogs' component={Authenticated(BlogMine)} />
-                        <Route component={NotFound} />
-                    </Switch>
+                    <ScrollToTop>
+                        <Switch>
+                            <Route exact path='/' component={Welcome} />
+                            <Route path='/signin' component={SignIn} />
+                            <Route path='/signup' component={SignUp} />
+                            <Route path="/profile" component={Authenticated(Profile)} />
+                            <Route path="/settings" component={Authenticated(Setting)} />
+                            <Route exact path='/blogs' component={BlogList} />
+                            <Route path='/blogs/new' component={Authenticated(BlogNew)} />
+                            <Route path='/blogs/:id' component={BlogDetail} />
+                            <Route path='/my_blogs' component={Authenticated(BlogMine)} />
+                            <Route component={NotFound} />
+                        </Switch>
+                    </ScrollToTop>
                 <Footer />
             </div>
         </Router>

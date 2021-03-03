@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Nav, Navbar, NavDropdown, Image, Container } from 'react-bootstrap'
 import { verifyJwt, signoutUser } from '../actions/userActions'
 import logo from '../assets/logo.jpg'
 
@@ -15,25 +16,24 @@ class Header extends Component {
         if (this.props.authenticated) {
             // show a dropdown menu for authenticated user
             return (
-                <>
-                    <li className="nav-item">
-                        <Link to="/my_blogs">My Dashboard</Link>
-                    </li>
-                    <li className="nav-item">
+                <NavDropdown title="My Account" id="collasible-nav-dropdown">
+                    <NavDropdown.Item href="/my_blogs">My Blogs</NavDropdown.Item>
+                    <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
+                    <NavDropdown.Item href="/settings">Settings</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item>
                         <Link to="/" onClick={this.props.signoutUser}>Sign out</Link>
-                    </li>
-                </>
+                    </NavDropdown.Item>
+                </NavDropdown>
             )
         } else {
             // show a link to sign in or sign up
             return (
                 <>
-                    <li className="nav-item" key={1}>
-                        <Link to="/signup">Sign Up</Link>
-                    </li>
-                    <li className="nav-item" key={2}>
-                        <Link to="/signin">Sign In</Link>
-                    </li>
+                    <Nav.Link href="/signin">Sign in</Nav.Link>
+                    <Nav.Link eventKey={2} href="/signup">
+                        Sign Up
+                    </Nav.Link>
                 </>
 
             )
@@ -42,25 +42,23 @@ class Header extends Component {
 
     render() {
         return (
-            <nav className="main-nav overlay clearfix">
-                <a class="blog-logo" href="/">
-                </a>
-                <ul id="menu">
-                    <li class="nav-home nav-current" role="presentation">
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li class="nav-home nav-current" role="presentation">
-                        <Link to="/blogs">Blogs</Link>
-                    </li>
-                    {this.renderLinks()}
-                    <span class="socialheader">
-                        <a href="#"><span class='symbol'>circletwitterbird</span></a>
-                        <a href="#"><span class='symbol'>circlefacebook</span></a>
-                        <a href="#"><span class='symbol'>circlegoogleplus</span></a>
-                        <a href="mailto:wowthemesnet@gmail.com"><span class='symbol'>circleemail</span></a>
-                    </span>
-                </ul>
-            </nav>
+            <Navbar collapseOnSelect expand="lg">
+                <Container>
+                    <Navbar.Brand href="/">
+                        <Image src={logo} roundedCircle height="50" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/blogs">Blog</Nav.Link>
+                        </Nav>
+                        <Nav>
+                            {this.renderLinks()}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         )
     }
 }

@@ -13,7 +13,7 @@ const Comment = require('../models/commentModel')
 exports.fetchBlogs = function (req, res, next) {
     Blog.find({})
         .select({})
-        .limit(9)
+        .limit(100)
         .sort({ time: -1 })
         .exec(function (err, blogs) {
             if (err) {
@@ -346,7 +346,6 @@ exports.fetchCommentsByBlogId = function (req, res, next) {
             blogId: req.params.blogId
         })
         .select({})
-        .limit(9)
         .sort({ time: 1 })
         .exec(function (err, comments) {
             if (err) {

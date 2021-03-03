@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Image } from 'react-bootstrap'
 class BlogBody extends Component {
     renderTags(tags) {
         return tags.map(tag => {
@@ -20,7 +20,7 @@ class BlogBody extends Component {
                 <span className="span-with-margin"> • </span>
                 <span className="span-with-margin">{new Date(blog.time).toLocaleString()}</span>
                 <hr />
-                <img src={blog.image} />
+                <Image src={blog.image} fluid />
                 <div className="text-justify" dangerouslySetInnerHTML={{ __html: blog.content }} />
                 <hr />
             </div>
