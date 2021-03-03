@@ -12,7 +12,7 @@ class BlogMine extends Component {
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-info span-with-margin" key={tag}>{tag}</span>
+            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
         })
     }
 
@@ -29,7 +29,6 @@ class BlogMine extends Component {
                     <Card.Text>
                         {this.renderTags(blog.categories)}
                     </Card.Text>
-                    <Button variant="primary">See More</Button>
                 </Card.Body>
                 <Card.Footer>
                     <small className="text-muted">{new Date(blog.time).toLocaleString()}</small>

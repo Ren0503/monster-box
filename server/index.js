@@ -23,6 +23,14 @@ app.use(bodyParser.json({ type: '*/*' }))  // middleware for helping parse incom
 // Router Setup
 router(app)
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/client/build')))
+
+    app.get('*', (req, res) =>
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    )
+}
+
 // Server Setup
 const port = process.env.PORT || 5000
 const server = http.createServer(app)

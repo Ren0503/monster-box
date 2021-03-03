@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap'
 class BlogBody extends Component {
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-info span-with-margin" key={tag}>{tag}</span>;
+            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>;
         })
     }
 
