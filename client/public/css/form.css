@@ -1,0 +1,72 @@
+.row {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.input-field label {
+    margin-bottom: 0;
+    letter-spacing: -1px;
+    font-style: italic;
+    width: 100%;
+}
+
+.input-field input, .input-field textarea{
+    width: 97%;
+    border-radius: 5px;
+    border: gray solid 3px;
+    font-size: 2rem !important;
+    padding: 8px;
+}
+
+.input-field textarea{
+    height: -webkit-fill-available;
+}
+
+.input-field select{
+    border-radius: 5px;
+    border: 3px solid gray;
+    font-size: 18px;
+}
+
+.btn {
+    text-align: center;
+    padding: 5px;
+    background-color: green;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    min-width: 50px;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.danger {
+    background-color: transparent;
+    color: red;
+    text-decoration: none;
+}
+
+.img-background {
+    width: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.btn-delete {
+    position: fixed;
+    right: 10px;
+    border: none;
+    outline: none;
+    background: red;
+    padding: 8px;
+    border-radius: 15px;
+    color: white;
+    z-index: 999;
+}
+
+.form-control {
+    font-size: 2rem !important;
+}
