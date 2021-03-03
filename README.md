@@ -35,5 +35,5 @@ npm start
 |                                        CreateBlog                                        |                                        BlogDetail                                        |                                        SignUp                                        |
 | 
 :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
-| ![](https://github.com/Ren0503/monster-box/blob/main/assets/157014786_2994665987436351_8754106685769442607_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156623514_960717388065715_8574706386156798580_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156752683_1667765993428757_145725550144104775_n.png)
+| ![](https://github.com/Ren0503/monster-box/blob/main/assets/157014786_2994665987436351_8754106685769442607_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156623514_960717388065715_8574706386156798580_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156752683_1667765993428757_145725550144104775_n.png) |
 
