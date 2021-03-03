@@ -30,7 +30,7 @@ npm start
 ## Screenshots
 |                                        Home                                        |                                        Blog                                        |                                        Profile                                        |
 | :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-| ![](https://github.com/Ren0503/monster-box/blob/main/assets/155922214_264222038485767_7707019508969486699_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156023552_255259466220345_4761020069144217309_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156570821_290108365867937_3275924131845962970_n.png)
+| ![](https://github.com/Ren0503/monster-box/blob/main/assets/155922214_264222038485767_7707019508969486699_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156023552_255259466220345_4761020069144217309_n.png) | ![](https://github.com/Ren0503/monster-box/blob/main/assets/156570821_290108365867937_3275924131845962970_n.png) |
 
 |                                        CreateBlog                                        |                                        BlogDetail                                        |                                        SignUp                                        |
 | 
