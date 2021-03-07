@@ -16,6 +16,7 @@ import BlogList from './pages/Blog/BlogList'
 import BlogNew from './pages/Blog/BlogNew'
 import BlogMine from './pages/Blog/BlogMine'
 import BlogDetail from './pages/Blog/BlogDetail'
+import BlogAuthor from './pages/Blog/BlogAuthor'
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                             <Route path='/blogs/new' component={Authenticated(BlogNew)} />
                             <Route path='/blogs/:id' component={BlogDetail} />
                             <Route path='/my_blogs' component={Authenticated(BlogMine)} />
+                            <Route path="/by/:authorId" component={BlogAuthor} />
                             <Route component={NotFound} />
                         </Switch>
                     </ScrollToTop>

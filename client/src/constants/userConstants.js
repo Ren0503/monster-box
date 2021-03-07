@@ -1,6 +1,0 @@
-export const AUTH_USER = 'AUTH_USER'
-export const UNAUTH_USER = 'UNAUTH_USER'
-
-export const FETCH_PROFILE = 'FETCH_PROFILE'
-export const CLEAR_PROFILE = 'CLEAR_PROFILE'
-export const UPDATE_PROFILE = 'UPDATE_PROFILE'

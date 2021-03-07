@@ -106,9 +106,22 @@ export function deleteBlog(id, historyPush) {
     }
 }
 
-export function fetchBlogsByUserId() {
+export function fetchMyBlogs() {
     return function (dispatch) {
         axios.get(`${BLOG_URL}/my/blogs`, {
+            headers: { authorization: localStorage.getItem('token') },  // require auth
+        }).then((response) => {
+            dispatch({
+                type: types.FETCH_BLOGS,
+                payload: response.data,
+            })
+        })
+    }
+}
+
+export function fetchBlogsByAuthor(authorId) {
+    return function (dispatch) {
+        axios.get(`${BLOG_URL}/by/${authorId}`, {
             headers: { authorization: localStorage.getItem('token') },  // require auth
         }).then((response) => {
             dispatch({

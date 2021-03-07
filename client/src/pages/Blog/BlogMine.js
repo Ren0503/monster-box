@@ -2,12 +2,19 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchBlogsByUserId } from '../../actions/blogActions'
+import { fetchMyBlogs } from '../../actions/blogActions'
 import { Card, Button, Container, CardColumns } from 'react-bootstrap'
 
 class BlogMine extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            count: 6
+        }
+    }
+
     componentDidMount() {
-        this.props.fetchBlogsByUserId()
+        this.props.fetchMyBlogs()
     }
 
     renderTags(tags) {
@@ -40,17 +47,19 @@ class BlogMine extends Component {
     render() {
         return (
             <Container>
-                <Button variant="outline-primary">
+                <Button variant="outline-primary" className="pb-2 mb-3">
                     <Link className="link-without-underline" to='/blogs/new'>Create blogs</Link>
                 </Button>
-
-                <div></div>
                 
                 <CardColumns>
-                    {_.map(this.props.blogs, blog => {
+                    {_.take(_.map(this.props.blogs, blog => {
                         return this.renderBlogSummary(blog)
-                    })}
+                    }), this.state.count)}
                 </CardColumns>
+
+                <Button variant="outline-warning" onClick={() => this.setState({ count: this.state.count + 3 })}>
+                    See more
+                </Button>
             </Container>
         )
     }
@@ -60,4 +69,4 @@ function mapStateToProps(state) {
     return { blogs: state.blogs }
 }
 
-export default connect(mapStateToProps, { fetchBlogsByUserId })(BlogMine)
+export default connect(mapStateToProps, { fetchMyBlogs })(BlogMine)

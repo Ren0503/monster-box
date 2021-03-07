@@ -15,7 +15,8 @@ router.get('/allow_edit_or_delete/:id', requireAuth, Blog.allowUpdateOrDelete)
 router.put('/:id', requireAuth, Blog.updateBlog)
 router.delete('/:id', requireAuth, Blog.deleteBlog)
 
-router.get('/my/blogs', requireAuth, Blog.fetchBlogsByAuthorId)
+router.get('/my/blogs', requireAuth, Blog.fetchMyBlogs)
+router.get('/by/:authorId', Blog.fetchBlogsByAuthorId)
 
 router.get('/comments/:blogId', Blog.fetchCommentsByBlogId)
 router.post('/comments/:blogId', requireAuth, Blog.createComment)

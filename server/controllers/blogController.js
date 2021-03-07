@@ -13,7 +13,6 @@ const Comment = require('../models/commentModel')
 exports.fetchBlogs = function (req, res, next) {
     Blog.find({})
         .select({})
-        .limit(100)
         .sort({ time: -1 })
         .exec(function (err, blogs) {
             if (err) {
@@ -250,13 +249,13 @@ exports.deleteBlog = function (req, res, next) {
 }
 
 /**
- * Fetch blogs by author ID
+ * Fetch my blogs 
  *
  * @param req
  * @param res
  * @param next
  */
-exports.fetchBlogsByAuthorId = function (req, res, next) {
+exports.fetchMyBlogs = function (req, res, next) {
     // Require auth
     const user = req.user
 
@@ -266,13 +265,39 @@ exports.fetchBlogsByAuthorId = function (req, res, next) {
         })
     }
 
-    // Fetch posts by author ID
+    // Fetch my blogs
     Blog
         .find({
             authorId: user._id,
         })
         .populate(' ')
-        .limit(100)
+        .sort({
+            time: -1
+        })
+        .exec(function (err, blogs) {
+            if (err) {
+                console.log(err)
+                return res.status(422).json({
+                    message: 'Error! Could not retrieve posts.'
+                })
+            }
+            res.json(blogs)
+        })
+}
+/**
+ * Fetch blogs by author ID
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.fetchBlogsByAuthorId = function (req, res, next) {
+    // Fetch blogs by authorId
+    Blog
+        .find({
+            authorId: req.params.authorId,
+        })
+        .populate(' ')
         .sort({
             time: -1
         })

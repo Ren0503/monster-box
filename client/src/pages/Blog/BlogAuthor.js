@@ -2,9 +2,10 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchBlogs } from '../../actions/blogActions'
+import { fetchBlogsByAuthor } from '../../actions/blogActions'
 import { Card, Button, Container, CardColumns } from 'react-bootstrap'
-class BlogList extends Component {
+
+class BlogAuthor extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,12 +14,15 @@ class BlogList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchBlogs()
+        // Get blog id
+        const { authorId } = this.props.match.params
+
+        this.props.fetchBlogsByAuthor(authorId)
     }
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>;
+            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
         })
     }
 
@@ -37,10 +41,7 @@ class BlogList extends Component {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Link to={`/by/${blog.authorId}`} >
-                        <small className="text-muted">{blog.authorName}</small>
-                    </Link>
-                    <small className="text-muted pl-5">{new Date(blog.time).toLocaleString()}</small>
+                    <small className="text-muted">{new Date(blog.time).toLocaleString()}</small>
                 </Card.Footer>
             </Card>
         )
@@ -48,8 +49,8 @@ class BlogList extends Component {
 
     render() {
         return (
-            <Container className="text-center">
-                <CardColumns >
+            <Container>               
+                <CardColumns>
                     {_.take(_.map(this.props.blogs, blog => {
                         return this.renderBlogSummary(blog)
                     }), this.state.count)}
@@ -58,7 +59,6 @@ class BlogList extends Component {
                 <Button variant="outline-warning" onClick={() => this.setState({ count: this.state.count + 3 })}>
                     See more
                 </Button>
-
             </Container>
         )
     }
@@ -68,4 +68,4 @@ function mapStateToProps(state) {
     return { blogs: state.blogs }
 }
 
-export default connect(mapStateToProps, { fetchBlogs })(BlogList)
+export default connect(mapStateToProps, { fetchBlogsByAuthor })(BlogAuthor)
