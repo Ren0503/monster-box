@@ -33,7 +33,7 @@ const blogSchema = new Schema({
     time: {
         type: Date,
         required: true,
-    }
+    },
 }, {
     timestamps: true,
 })

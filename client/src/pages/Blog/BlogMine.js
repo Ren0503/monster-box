@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchMyBlogs } from '../../actions/blogActions'
-import { Card, Button, Container, CardColumns } from 'react-bootstrap'
+import { Card, Button, Container, CardColumns, Table, Image } from 'react-bootstrap'
 
 class BlogMine extends Component {
     constructor(props) {
@@ -27,22 +27,25 @@ class BlogMine extends Component {
 
     renderBlogSummary(blog) {
         return (
-            <Card style={{ width: '18rem' }} key={blog._id}>
-                <Card.Img variant="top" src={blog.image} />
-                <Card.Body>
-                    <Card.Title>
-                        <Link className="link-without-underline" to={`/blogs/${blog._id}`}>
-                            {blog.title}
-                        </Link>
-                    </Card.Title>
-                    <Card.Text>
-                        {this.renderTags(blog.categories)}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">{new Date(blog.time).toLocaleString()}</small>
-                </Card.Footer>
-            </Card>
+            <tr key={blog._id}>
+                <td>
+                    {blog._id}
+                </td>
+                <td>
+                    <Image src={blog.image} rounded height="50" />
+                </td>
+                <td>
+                    {blog.title}
+                </td>
+                <td>
+                    {new Date(blog.time).toLocaleString()}
+                </td>
+                <td>
+                    <Link className="link-without-underline" to={`/blogs/${blog._id}`}>
+                        <i className="far fa-edit"></i>
+                    </Link>
+                </td>
+            </tr>
         )
     }
 
@@ -50,14 +53,27 @@ class BlogMine extends Component {
         return (
             <Container>
                 <Button variant="outline-primary" className="pb-2 mb-3">
-                    <Link className="link-without-underline" to='/blogs/new'>Create blogs</Link>
+                    <Link className="link-without-underline" to='/blogs/new'>
+                        Create blogs <i className="fas fa-pencil-alt"></i>
+                    </Link>
                 </Button>
 
-                <CardColumns>
-                    {_.take(_.map(this.props.blogs, blog => {
-                        return this.renderBlogSummary(blog)
-                    }), this.state.count)}
-                </CardColumns>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <td>Published At</td>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {_.take(_.map(this.props.blogs, (blog) => {
+                            return this.renderBlogSummary(blog)
+                        }), this.state.count)}
+                    </tbody>
+                </Table>
 
                 <Button variant="outline-warning" onClick={() => this.setState({ count: this.state.count + 3 })}>
                     See more

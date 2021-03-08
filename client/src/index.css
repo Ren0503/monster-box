@@ -10,12 +10,22 @@ body {
   font-family: 'Cormorant Upright', serif;
   background-image: linear-gradient(
     45deg
-    , #01132e, #2e0051);
+    , #01132e, #130121);
+}
+
+.card-img-top {
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.card-img-top:hover {
+  transform: translate3d(10px, 10px, 10px);
 }
 
 .nav-link{
   color: #fff !important;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -73,4 +83,12 @@ body {
 
 .text-grey {
   color: #9199a1 !important;
+}
+
+.btn-monster {
+  background: linear-gradient(to right,#743ad5,#d53a9d);
+  border-radius: 100px;
+  width: 30%;
+  box-sizing: border-box;
+  color: #fff;
 }

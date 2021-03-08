@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchBlogs } from '../../actions/blogActions'
-import { Card, Button, Container, CardColumns } from 'react-bootstrap'
+import { Card, Button, Container, CardColumns, Row, Col, CardGroup } from 'react-bootstrap'
 class BlogList extends Component {
     constructor(props) {
         super(props)
@@ -20,15 +20,15 @@ class BlogList extends Component {
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <Link to={`/search/${tag}`}>
+            return <a href={`/search/${tag}`}>
                 <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
-            </Link>
+            </a>
         })
     }
 
     renderBlogSummary(blog) {
         return (
-            <Card className="animate__animated animate__fadeInUp" style={{ width: '18rem' }} key={blog._id}>
+            <Card className="animate__fadeInUp" style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={blog.image} />
                 <Card.Body>
                     <Card.Title>
@@ -53,13 +53,13 @@ class BlogList extends Component {
     render() {
         return (
             <Container className="text-center">
-                <CardColumns >
+                <CardColumns>
                     {_.take(_.map(this.props.blogs, blog => {
                         return this.renderBlogSummary(blog)
                     }), this.state.count)}
                 </CardColumns>
 
-                <Button variant="outline-warning" onClick={() => this.setState({ count: this.state.count + 3 })}>
+                <Button className="btn-monster" onClick={() => this.setState({ count: this.state.count + 3 })}>
                     See more
                 </Button>
 
