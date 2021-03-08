@@ -4,9 +4,9 @@ import * as types from '../constants/types'
 
 const BLOG_URL = '/api/blogs'
 
-export function fetchBlogs() {
+export function fetchBlogs(keyword = '') {
     return function (dispatch) {
-        axios.get(`${BLOG_URL}`).then((response) => {
+        axios.get(`${BLOG_URL}?keyword=${keyword}`).then((response) => {
             dispatch({
                 type: types.FETCH_BLOGS,
                 payload: response.data,

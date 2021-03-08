@@ -13,18 +13,22 @@ class BlogList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchBlogs()
+        const { keyword } = this.props.match.params
+
+        this.props.fetchBlogs(keyword)
     }
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>;
+            return <Link to={`/search/${tag}`}>
+                <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            </Link>
         })
     }
 
     renderBlogSummary(blog) {
         return (
-            <Card style={{ width: '18rem' }} key={blog._id}>
+            <Card className="animate__animated animate__fadeInUp" style={{ width: '18rem' }} key={blog._id}>
                 <Card.Img variant="top" src={blog.image} />
                 <Card.Body>
                     <Card.Title>

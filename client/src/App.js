@@ -30,6 +30,7 @@ function App() {
                             <Route path='/signup' component={SignUp} />
                             <Route path="/profile" component={Authenticated(Profile)} />
                             <Route path="/settings" component={Authenticated(Setting)} />
+                            <Route exact path="/search/:keyword" component={BlogList} />
                             <Route exact path='/blogs' component={BlogList} />
                             <Route path='/blogs/new' component={Authenticated(BlogNew)} />
                             <Route path='/blogs/:id' component={BlogDetail} />

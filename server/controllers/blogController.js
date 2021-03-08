@@ -11,7 +11,16 @@ const Comment = require('../models/commentModel')
  * @param next
  */
 exports.fetchBlogs = function (req, res, next) {
-    Blog.find({})
+    const keyword = req.query.keyword
+    ? {
+        categories: {
+            $regex: req.query.keyword,
+            $options: 'i',
+        },
+    }
+    : {}
+
+    Blog.find({...keyword})
         .select({})
         .sort({ time: -1 })
         .exec(function (err, blogs) {

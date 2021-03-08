@@ -22,7 +22,9 @@ class BlogAuthor extends Component {
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            return <Link to={`/search/${tag}`}>
+                <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            </Link>
         })
     }
 
@@ -49,7 +51,7 @@ class BlogAuthor extends Component {
 
     render() {
         return (
-            <Container>               
+            <Container>
                 <CardColumns>
                     {_.take(_.map(this.props.blogs, blog => {
                         return this.renderBlogSummary(blog)

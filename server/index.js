@@ -1,10 +1,13 @@
 const express = require('express')
 const http = require('http')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
 const morgan = require('morgan')
 const app = express()
 const router = require('./routes')
 const mongoose = require('mongoose')
+dotenv.config()
+
 const { mongoUri } = require('./config/key')
 // const cors = require('cors');  // we don't need it anymore, because we use proxy server instead
 

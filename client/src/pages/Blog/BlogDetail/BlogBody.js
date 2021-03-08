@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Image } from 'react-bootstrap'
 class BlogBody extends Component {
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>;
+            return <Link to={`/search/${tag}`}>
+                <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            </Link>
         })
     }
 

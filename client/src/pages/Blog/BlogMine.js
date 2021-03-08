@@ -19,7 +19,9 @@ class BlogMine extends Component {
 
     renderTags(tags) {
         return tags.map(tag => {
-            return <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            return <Link to={`/search/${tag}`}>
+                <span className="badge badge-warning span-with-margin" key={tag}>{tag}</span>
+            </Link>
         })
     }
 
@@ -50,7 +52,7 @@ class BlogMine extends Component {
                 <Button variant="outline-primary" className="pb-2 mb-3">
                     <Link className="link-without-underline" to='/blogs/new'>Create blogs</Link>
                 </Button>
-                
+
                 <CardColumns>
                     {_.take(_.map(this.props.blogs, blog => {
                         return this.renderBlogSummary(blog)
