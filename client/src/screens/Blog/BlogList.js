@@ -32,7 +32,7 @@ class BlogList extends Component {
                 <Card.Img variant="top" src={blog.image} />
                 <Card.Body>
                     <Card.Title>
-                        <Link className="link-without-underline" to={`/blogs/${blog._id}`}>
+                        <Link to={`/blogs/${blog._id}`}>
                             {blog.title}
                         </Link>
                     </Card.Title>

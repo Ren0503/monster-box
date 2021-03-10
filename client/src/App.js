@@ -4,19 +4,21 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
-import Welcome from './components/Welcome'
 import ScrollToTop from './components/ScrollToTop'
 
-import SignIn from './pages/Auth/SignIn'
-import SignUp from './pages/Auth/SignUp'
-import Authenticated from './pages/Auth/Authenticated'
-import Profile from './pages/User/Profile'
-import Setting from './pages/User/Setting'
-import BlogList from './pages/Blog/BlogList'
-import BlogNew from './pages/Blog/BlogNew'
-import BlogMine from './pages/Blog/BlogMine'
-import BlogDetail from './pages/Blog/BlogDetail'
-import BlogAuthor from './pages/Blog/BlogAuthor'
+import Authenticated from './guards/Authenticated'
+
+import SignIn from './screens/Auth/SignIn'
+import SignUp from './screens/Auth/SignUp'
+import Profile from './screens/User/Profile'
+import Setting from './screens/User/Setting'
+import BlogList from './screens/Blog/BlogList'
+import BlogNew from './screens/Blog/BlogNew'
+import BlogMine from './screens/Blog/BlogMine'
+import BlogDetail from './screens/Blog/BlogDetail'
+import BlogAuthor from './screens/Blog/BlogAuthor'
+import Contact from './screens/Home/Contact'
+import About from './screens/Home/About'
 
 function App() {
     return (
@@ -25,7 +27,9 @@ function App() {
                 <Header />
                     <ScrollToTop>
                         <Switch>
-                            <Route exact path='/' component={Welcome} />
+                            <Route exact path='/' component={BlogList} />
+                            <Route path='/contact' component={Contact} />
+                            <Route path='/about' component={About} />
                             <Route path='/signin' component={SignIn} />
                             <Route path='/signup' component={SignUp} />
                             <Route path="/profile" component={Authenticated(Profile)} />

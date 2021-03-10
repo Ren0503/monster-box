@@ -6,7 +6,6 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
   font-family: 'Cormorant Upright', serif;
   background-image: linear-gradient(
     45deg
@@ -14,8 +13,8 @@ body {
 }
 
 .card-img-top {
-  transition: 1s;
-  transition-delay: 0.5s;
+  transition: 0.75s;
+  transition-delay: 0.4s;
 }
 
 .card-img-top:hover {

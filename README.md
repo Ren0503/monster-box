@@ -19,12 +19,12 @@
 git clone https://github.com/Ren0503/monster-box.git
 cd monster-box
 cd server
-npm install
-npm run dev
+yarn
+yarn dev
 
 cd client
-npm install
-npm start
+yarn
+yarn start
 ```
 
 ## Screenshots

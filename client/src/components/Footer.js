@@ -1,11 +1,11 @@
 import React from 'react'
+import footer from '../assets/footer.png'
+import { Image } from 'react-bootstrap'
 
 const Footer = () => {
     return (
-        <footer class="mt-4">
-            <div class="text-center text-light">
-                <a href="/">@Copyright Monster Box</a> &copy; 2021<br />
-            </div>
+        <footer>
+            <Image src={footer} fluid />
         </footer>
     )
 }
