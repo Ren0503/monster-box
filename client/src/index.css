@@ -12,6 +12,89 @@ body {
     , #01132e, #130121);
 }
 
+.welcome {
+  position: absolute;
+  width: 45rem;
+  top: auto;
+  right: 12rem;
+  bottom: 21rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome {
+    width: 30rem;
+    top: 12rem;
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .welcome {
+    width: 20rem;
+    top: 11rem;
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .welcome {
+    width: 20rem;
+    top: 12rem;
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .welcome {
+    width: 17rem;
+    top: 12rem;
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 486px) {
+  .welcome {
+    width: 15rem;
+    top: 11rem;
+    left: 9rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .welcome {
+    width: 13rem;
+    top: 9rem;
+    left: 7rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .welcome {
+    width: 10rem;
+    top: 9rem;
+    left: 7rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .welcome {
+    width: 9rem;
+    top: 8rem;
+    left: 7rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .welcome {
+    width: 9rem;
+    top: 6rem;
+    left: 5rem;
+  }
+}
+.card {
+  transition: width 2s;
+}
+
 .card-img-top {
   transition: 0.75s;
   transition-delay: 0.4s;

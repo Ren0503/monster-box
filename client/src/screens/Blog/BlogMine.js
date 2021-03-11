@@ -61,7 +61,7 @@ class BlogMine extends Component {
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>#ID</th>
                             <th>Image</th>
                             <th>Title</th>
                             <td>Published At</td>

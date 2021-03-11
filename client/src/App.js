@@ -18,7 +18,7 @@ import BlogMine from './screens/Blog/BlogMine'
 import BlogDetail from './screens/Blog/BlogDetail'
 import BlogAuthor from './screens/Blog/BlogAuthor'
 import Contact from './screens/Home/Contact'
-import About from './screens/Home/About'
+import Welcome from './screens/Home/Welcome'
 
 function App() {
     return (
@@ -27,9 +27,8 @@ function App() {
                 <Header />
                     <ScrollToTop>
                         <Switch>
-                            <Route exact path='/' component={BlogList} />
+                            <Route exact path='/' component={Welcome} />
                             <Route path='/contact' component={Contact} />
-                            <Route path='/about' component={About} />
                             <Route path='/signin' component={SignIn} />
                             <Route path='/signup' component={SignUp} />
                             <Route path="/profile" component={Authenticated(Profile)} />

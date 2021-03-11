@@ -28,7 +28,7 @@ class BlogList extends Component {
 
     renderBlogSummary(blog) {
         return (
-            <Card className="animate__fadeInUp" style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={blog.image} />
                 <Card.Body>
                     <Card.Title>

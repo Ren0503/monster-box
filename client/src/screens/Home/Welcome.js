@@ -4,18 +4,10 @@ import { Container, Row, Col, Image, Jumbotron, Button } from 'react-bootstrap'
 import logo from '../../assets/home.png'
 import logoFixed from '../../assets/home2.png'
 
-var sectionStyles = {
-    position: 'absolute',
-    width: '45rem',
-    top: 'auto',
-    right: '12rem',
-    bottom: '21rem',
-}
-
-const About = () => (
+const Welcome = () => (
     <Container>
         <Image src={logo} fluid />
-        <img src={logoFixed} style={sectionStyles} />
+        <img src={logoFixed} className="welcome" />
         <Jumbotron>
             <h3>
                 
@@ -29,4 +21,4 @@ const About = () => (
     </Container>
 )
 
-export default About
+export default Welcome
