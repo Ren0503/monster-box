@@ -96,22 +96,12 @@ export function clearProfile() {
 export function updateProfile({
     firstName,
     lastName,
-    birthday,
-    sex,
-    phone,
-    address,
-    occupation,
     description
 }, historyReplace) {
     return function (dispatch) {
         axios.put(`${USER_URL}/profile`, {  // req.body (2nd parameter)
             firstName,
             lastName,
-            birthday,
-            sex,
-            phone,
-            address,
-            occupation,
             description,
         }, {  // header (3rd parameter)
             headers: { authorization: localStorage.getItem('token') },  // require auth

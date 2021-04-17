@@ -14,11 +14,6 @@ exports.fetchProfile = function(req, res, next) {
         email: req.user.email,
         firstName: req.user.firstName,
         lastName: req.user.lastName,
-        birthday: req.user.birthday,
-        sex: req.user.sex,
-        phone: req.user.phone,
-        address: req.user.address,
-        occupation: req.user.occupation,
         description: req.user.description,
     })
 
@@ -36,11 +31,6 @@ exports.updateProfile = function(req, res, next) {
     const {
         firstName,
         lastName,
-        birthday,
-        sex,
-        phone,
-        address,
-        occupation,
         description
     } = req.body
 
@@ -65,11 +55,6 @@ exports.updateProfile = function(req, res, next) {
     User.findByIdAndUpdate(user._id, { $set: {
         firstName: firstName,
         lastName: lastName,
-        birthday: birthday,
-        sex: sex,
-        phone: phone,
-        address: address,
-        occupation: occupation,
         description: description,
     }}, { new: true }, function(err, updateUser) {
         if(err) {

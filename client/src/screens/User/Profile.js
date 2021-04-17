@@ -17,8 +17,8 @@ class Profile extends Component {
     }
 
     // callback: history replace
-    handleFormSubmit({ firstName, lastName, birthday, sex, phone, address, occupation, description }) {
-        this.props.updateProfile({ firstName, lastName, birthday, sex, phone, address, occupation, description }, (path, state) => {
+    handleFormSubmit({ firstName, lastName, description }) {
+        this.props.updateProfile({ firstName, lastName, description }, (path, state) => {
             this.props.history.replace(path, state)
         })
     }
@@ -33,17 +33,6 @@ class Profile extends Component {
                 required={field.required ? 'required' : ''}
                 disabled={field.disabled ? 'disabled' : ''}
             />
-        </fieldset>
-    )
-
-    renderOptions = (field) => (
-        <fieldset className="form-group">
-            <label>{field.label}</label>
-            <select className="form-control" {...field.input}>
-                <option />
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
         </fieldset>
     )
 
@@ -84,11 +73,6 @@ class Profile extends Component {
                     <Field name="email" component={this.renderInput} type="email" label="Email:" disabled={true} />
                     <Field name="firstName" component={this.renderInput} type="text" label="First Name:" required={true} />
                     <Field name="lastName" component={this.renderInput} type="text" label="Last Name:" required={true} />
-                    <Field name="birthday" component={this.renderInput} type="date" label="Birthday:" />
-                    <Field name="sex" component={this.renderOptions} label="Sex:" />
-                    <Field name="phone" component={this.renderInput} type="text" label="Phone:" />
-                    <Field name="address" component={this.renderInput} type="text" label="Address:" />
-                    <Field name="occupation" component={this.renderInput} type="text" label="Occupation:" />
                     <Field name="description" component={this.renderTextarea} label="Description:" />
                     
                     <button action="submit" className="btn btn-primary">Update Profile</button>

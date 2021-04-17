@@ -23,30 +23,15 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    birthday: {
-        type: String,
-        default: ''
-    },
-    sex: {
-        type: String,
-        default: ''
-    },  // secrecy/male/female
-    phone: {
-        type: String,
-        default: ''
-    },
-    address: {
-        type: String,
-        default: ''
-    },
-    occupation: {
-        type: String,
-        default: ''
-    },
     description: {
         type: String,
         default: ''
     },
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false,
+    }
 }, {
     timestamps: true,
 })
